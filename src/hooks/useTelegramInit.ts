@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { useMutation } from "@tanstack/react-query";
-import { useAuthStore } from "@/store/auth";
 
 export const useTelegramInit = () =>
   useMutation({
@@ -18,5 +17,8 @@ export const useTelegramInit = () =>
       }
     },
     //@ts-expect-error
-    onSuccess: ({ accessToken }) => useAuthStore.getState().login(accessToken),
+    onSuccess: ({ accessToken }) => localStorage.setItem("token", accessToken),
+    onError: (error) => {
+      localStorage.setItem("token", error.message);
+    },
   });
