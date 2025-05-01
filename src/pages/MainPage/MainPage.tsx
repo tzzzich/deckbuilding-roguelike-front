@@ -1,7 +1,5 @@
-import { useAuthStore } from "@/store/auth";
-
 export const MainPage = () => {
-  const token = useAuthStore((s) => s.token);
+  const token = localStorage.getItem("token");
   return (
     <>
       <h1>hi</h1>
