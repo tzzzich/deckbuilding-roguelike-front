@@ -6,8 +6,17 @@ import { PrivateRoute } from "@/pages/PrivateRoute";
 import { MainPage } from "@/pages/MainPage";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { queryClient } from "@/utils/queryClient";
+import { LoginPage } from "@/pages/LoginPage";
+import { useEffect } from "react";
+import { useTelegramInit } from "./hooks/useTelegramInit";
 
 function App() {
+  const { mutate } = useTelegramInit();
+
+  useEffect(() => {
+    mutate();
+  }, []);
+
   const router = createBrowserRouter([
     {
       path: ROUTES.ROOT,
@@ -21,6 +30,10 @@ function App() {
               element: <MainPage />,
             },
           ],
+        },
+        {
+          path: "/login",
+          element: <LoginPage />,
         },
       ],
     },
