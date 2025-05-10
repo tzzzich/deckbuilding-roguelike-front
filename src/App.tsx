@@ -6,6 +6,7 @@ import { Root } from "@/pages/Root";
 import { PrivateRoute } from "@/pages/PrivateRoute";
 import { MainPage } from "@/pages/MainPage";
 import { LoginPage } from "@/pages/LoginPage";
+import { ROUTES } from "@/constants/router";
 
 export default function App() {
   const { mutate } = useTelegramInit();
@@ -20,7 +21,7 @@ export default function App() {
         <Route element={<PrivateRoute />}>
           <Route index element={<MainPage />} />
         </Route>
-        <Route path="login" element={<LoginPage />} />
+        <Route path={ROUTES.LOGIN} element={<LoginPage />} />
       </Route>
     </Routes>
   );

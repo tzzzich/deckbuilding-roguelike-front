@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
+import { setAccessToken } from "@/utils/token";
 import { useMutation } from "@tanstack/react-query";
 
 export const useTelegramInit = () =>
@@ -17,8 +18,9 @@ export const useTelegramInit = () =>
       }
     },
     //@ts-expect-error
-    onSuccess: ({ accessToken }) => localStorage.setItem("token", accessToken),
+    //
+    onSuccess: ({ accessToken }) => setAccessToken(accessToken),
     onError: (error) => {
-      localStorage.setItem("token", error.message);
+      console.error(error);
     },
   });

@@ -1,6 +1,8 @@
+import { ROUTES } from "@/constants/router";
+import { getAccessToken } from "@/utils/token";
 import { Navigate, Outlet } from "react-router-dom";
 
 export const PrivateRoute = () => {
-  const token = localStorage.getItem("token");
-  return token ? <Outlet /> : <Navigate to="/login" replace />;
+  const token = getAccessToken();
+  return token ? <Outlet /> : <Navigate to={ROUTES.LOGIN} replace />;
 };
