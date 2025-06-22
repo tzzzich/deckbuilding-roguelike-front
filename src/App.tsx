@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import { useEffect } from "react";
-import { useTelegramInit } from "@/hooks/useTelegramInit";
+import { useTelegramInit } from "features/auth/model/useTelegramInit";
 
 import { Root } from "@/pages/Root";
 import { PrivateRoute } from "@/pages/PrivateRoute";
