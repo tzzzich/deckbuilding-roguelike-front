@@ -22,7 +22,7 @@ export interface LocationShort {
 }
 
 export interface LocationDetailed extends LocationShort {
-  currentRoom: string | null;
+  currentRoom: Room;
   rooms: Room[];
   edges: RoomEdge[];
 }
